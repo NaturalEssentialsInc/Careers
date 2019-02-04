@@ -1,7 +1,7 @@
 $(document).ready(function() {
   const sheetID = "1InTwiH5M_JZ7MWmHHPD4TW1qDNAgN2ONOXCybSpzptg";
   const url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/1/public/values?alt=json";
-  const scriptURL = "https://script.google.com/a/bulkapothecary.com/macros/s/AKfycbyLeF7rftAOjheVd_pkSbrLNyJmbAhJdcSgWq-IK1mQ73TLaYc/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyLeF7rftAOjheVd_pkSbrLNyJmbAhJdcSgWq-IK1mQ73TLaYc/exec";
   const form = document.forms["apply-now-careers"];
 
 	// AJAX call
