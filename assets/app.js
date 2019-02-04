@@ -1,6 +1,8 @@
 $(document).ready(function() {
   const sheetID = "1InTwiH5M_JZ7MWmHHPD4TW1qDNAgN2ONOXCybSpzptg";
   const url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/1/public/values?alt=json";
+  const scriptURL = "https://script.google.com/a/bulkapothecary.com/macros/s/AKfycbyLeF7rftAOjheVd_pkSbrLNyJmbAhJdcSgWq-IK1mQ73TLaYc/exec";
+  const form = document.forms["apply-now-careers"];
 
 	// AJAX call
 	$.ajax({
@@ -114,5 +116,21 @@ $(document).ready(function() {
 		$("#jobs").append(element);
 		$("#position").append(options);
 	}
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response), alert('Your application has been successfully submitted!'))
+      .catch(error => alert('Error! Please re-submit your application!', error.message));
+
+    // $("#itemDescription").val("");
+    // $("#partNumber").val("");
+    // $("#quantity").val("");
+    // $("#needBy").val("");
+    // $("#allocatedTo").val("");
+    // $("#requestedBy").val("");
+    // $("#email").val("");
+  }) 
 
 });
