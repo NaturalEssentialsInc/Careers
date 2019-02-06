@@ -115,22 +115,76 @@ $(document).ready(function() {
 
 		$("#jobs").append(element);
 		$("#position").append(options);
+		$("#position").append("Any");
 	}
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  // form.addEventListener('submit', e => {
+  //   e.preventDefault();
     
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response), alert('Your application has been successfully submitted!'))
-      .catch(error => alert('Error! Please re-submit your application!', error.message));
+  //   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  //     .then(response => console.log('Success!', response), 
+  //     	alert('Your application has been successfully submitted!'),
+  //     	$("#apply-now-careers").trigger("reset"),
+  //     	$("#apply-now-modal").modal("hide"))
+  //     .catch(error => alert('Error! Please re-submit your application!', error.message));
 
-    // $("#itemDescription").val("");
-    // $("#partNumber").val("");
-    // $("#quantity").val("");
-    // $("#needBy").val("");
-    // $("#allocatedTo").val("");
-    // $("#requestedBy").val("");
-    // $("#email").val("");
-  }) 
+  // }) 
+  $("input[name='phone']").keypress(function (e) {
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      return false;
+    }
+    var curchr = this.value.length;
+    var curval = $(this).val();
+    if (curchr == 3 && curval.indexOf("(") <= -1) {
+      $(this).val("(" + curval + ")" + " ");
+    } else if (curchr == 4 && curval.indexOf("(") > -1) {
+      $(this).val(curval + ") ");
+    } else if (curchr == 5 && curval.indexOf(")") > -1) {
+      $(this).val(curval + "-");
+    } else if (curchr == 9) {
+      $(this).val(curval + "-");
+      $(this).attr('maxlength', '14');
+    }
+  });
+
+  (function() {
+  	'use strict';
+  	window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    var prior1Inputs = "#prior1-address, #prior1-city, #prior1-state, #prior1-zip, #prior1-phone, #prior1-supervisor, #prior1-title, #prior1-from, #prior1-to, #prior1-pay, #prior1-reason, #prior1-contact-affirmative, #prior1-contact-negative";
+    
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+		  form.addEventListener('submit', e => {
+		  	if ($("#prior1-employer").val() !== "" && $("#prior1-employer").val().toUpperCase().trim() !== "NONE") {
+		  		console.log($("#prior1-employer").val().toUpperCase().trim());
+		  		$(prior1Inputs).prop("required", true);
+		  	} else {
+		  		$(prior1Inputs).prop("required", false);
+		  	};
+
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else {
+        	e.preventDefault();
+				  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				    .then(response => console.log('Success!', response), 
+				      alert('Your application has been successfully submitted!'),
+				    	$("#apply-now-careers").trigger("reset"),
+				    	$("#apply-now-modal").modal("hide"))
+				    .catch(error => alert('Error! Please re-submit your application!', error.message));
+			  }
+        var errorElements = document.querySelectorAll(
+          "input.form-control:invalid");
+        $('html, #apply-now-modal').animate({
+          scrollTop: $(errorElements[0]).offset().top
+        }, 2000);
+				form.classList.add('was-validated');
+      }, false);
+		});
+	}, false);
+	})(); 
 
 });

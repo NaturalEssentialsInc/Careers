@@ -49,7 +49,7 @@
 					<!-- Render Jobs Here -->
 				</div>
 			</div>
-			<div class="modal fade apply" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ApplyNow" aria-hidden="true">
+			<div class="modal fade apply" id="apply-now-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ApplyNow" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -59,58 +59,168 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form name="apply-now-careers">
+							<form name="apply-now-careers" class="needs-validation" id="apply-now-careers" novalidate>
 								<span class="form-section-label"><b>Personal Information:</b></span>
 								<div class="form-row">
 									<div class="col-md-5 form-group">
 										<label for="lastName">Last Name</label>
-										<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+										<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-5 form-group">
 										<label for="firstName">First Name</label>
-										<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+										<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-2 form-group">
 										<label for="MI">MI</label>
 										<input type="text" class="form-control" id="MI" name="MI" placeholder="MI">
+										<small class="form-text text-muted">
+											(Optional)
+										</small>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-6 form-group">
 										<label for="email">Email</label>
-										<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com">
+										<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid email address.
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="phone">Phone Number</label>
-										<input type="tel" class="form-control" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+										<input type="tel" class="form-control" id="phone" name="phone" placeholder="(XXX) XXX-XXXX" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid phone number.
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-5 form-group">
 										<label for="address">Street Address</label>
-										<input type="text" class="form-control" id="address" name="address" placeholder="123 Number St">
+										<input type="text" class="form-control" id="address" name="address" placeholder="123 Number St" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-3 form-group">
 										<label for="city">City</label>
-										<input type="text" class="form-control" id="city" name="city" placeholder="Citytown">
+										<input type="text" class="form-control" id="city" name="city" placeholder="Citytown" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-2 form-group">
 										<label for="state">ST</label>
-										<input type="text" class="form-control" id="state" name="state" placeholder="OH">
+										<select class="form-control" id="state" name="state">
+											<option>AL</option>
+											<option>AK</option>
+											<option>AZ</option>
+											<option>AR</option>
+											<option>CA</option>
+											<option>CO</option>
+											<option>CT</option>
+											<option>DE</option>
+											<option>FL</option>
+											<option>GA</option>
+											<option>HI</option>
+											<option>ID</option>
+											<option>IL</option>
+											<option>IN</option>
+											<option>IA</option>
+											<option>KS</option>
+											<option>KY</option>
+											<option>LA</option>
+											<option>ME</option>
+											<option>MD</option>
+											<option>MA</option>
+											<option>MI</option>
+											<option>MN</option>
+											<option>MS</option>
+											<option>MO</option>
+											<option>MT</option>
+											<option>NE</option>
+											<option>NV</option>
+											<option>NH</option>
+											<option>NJ</option>
+											<option>NM</option>
+											<option>NY</option>
+											<option>NC</option>
+											<option>ND</option>
+											<option selected="selected">
+												OH
+											</option>
+											<option>OK</option>
+											<option>OR</option>
+											<option>PA</option>
+											<option>RI</option>
+											<option>SC</option>
+											<option>SD</option>
+											<option>TN</option>
+											<option>TX</option>
+											<option>UT</option>
+											<option>VT</option>
+											<option>VA</option>
+											<option>WA</option>
+											<option>WV</option>
+											<option>WI</option>
+											<option>WY</option>
+										</select>
 									</div>
 									<div class="col-md-2 form-group">
 										<label for="zip">Zip</label>
-										<input type="text" class="form-control" id="zip" name="zip" placeholder="XXXXX">
+										<input type="text" class="form-control" id="zip" name="zip" pattern="^\d{5}(?:[-\s]\d{4})?$" placeholder="XXXXX" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid zip code.
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-6">
 										<label for="birthdate">Date of Birth</label>
-										<input type="date" class="form-control" id="birthdate" name="birthdate">
+										<input type="date" class="form-control" id="birthdate" name="birthdate" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-6">
-										<label for="social">Social Security</label>
-										<input type="text" class="form-control" id="social" name="social">
+										<label for="social">Social Security (Last Four Digits)</label>
+										<input type="text" class="form-control" id="social" name="social" pattern="\d{4}\s*$" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -121,11 +231,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question1-radio" id="question1-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question1-radio" id="question1-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question1-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question1-radio" id="question1-negative" value="No">
+											<input class="form-check-input" type="radio" name="question1-radio" id="question1-negative" value="No" reuired>
 											<label class="form-check-label" for="question1-negative">No</label>
 										</div>
 									</div>
@@ -138,11 +248,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question2-radio" id="question2-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question2-radio" id="question2-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question2-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question2-radio" id="question2-negative" value="No">
+											<input class="form-check-input" type="radio" name="question2-radio" id="question2-negative" value="No" required>
 											<label class="form-check-label" for="question2-negative">No</label>
 										</div>
 									</div>
@@ -155,11 +265,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question3-radio" id="question3-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question3-radio" id="question3-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question3-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question3-radio" id="question3-negative" value="No">
+											<input class="form-check-input" type="radio" name="question3-radio" id="question3-negative" value="No" required>
 											<label class="form-check-label" for="question3-negative">No</label>
 										</div>
 									</div>
@@ -178,11 +288,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question4-radio" id="question4-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question4-radio" id="question4-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question4-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question4-radio" id="question4-negative" value="No">
+											<input class="form-check-input" type="radio" name="question4-radio" id="question4-negative" value="No" required>
 											<label class="form-check-label" for="question4-negative">No</label>
 										</div>
 									</div>
@@ -203,11 +313,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question5-radio" id="question5-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question5-radio" id="question5-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question5-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question5-radio" id="question5-negative" value="No">
+											<input class="form-check-input" type="radio" name="question5-radio" id="question5-negative" value="No" required>
 											<label class="form-check-label" for="question5-negative">No</label>
 										</div>
 									</div>
@@ -230,11 +340,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question6-radio" id="question6-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question6-radio" id="question6-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question6-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question6-radio" id="question6-negative" value="No">
+											<input class="form-check-input" type="radio" name="question6-radio" id="question6-negative" value="No" required>
 											<label class="form-check-label" for="question6-negative">No</label>
 										</div>
 									</div>
@@ -244,7 +354,7 @@
 										<hr />
 										<div class="form-group">
 											<label for="position">What position are you applying for?</label>
-											<select class="form-control" name="position" id="position">
+											<select class="form-control" name="position" id="position" required>
 												<!-- Render Options Here -->
 											</select>
 										</div>
@@ -254,17 +364,35 @@
 									<hr />
 									<div class="col-md-12 form-group">
 										<label for="question7-response">How did you hear about this position?</label>
-										<input type="text" class="form-control" name="question7-response" id="question7-response"></input>
+										<input type="text" class="form-control" name="question7-response" id="question7-response" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-6 form-group">
 										<label for="rate">Expected Hourly/Salary Rate?</label>
-										<input type="text" class="form-control" name="rate" id="rate">
+										<input type="text" class="form-control" name="rate" id="rate" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="start">Date Available?</label>
-										<input type="date" class="form-control" name="start" id="start">
+										<input type="date" class="form-control" name="start" id="start" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -275,11 +403,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question8-radio" id="question8-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question8-radio" id="question8-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question8-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question8-radio" id="question8-negative" value="No">
+											<input class="form-check-input" type="radio" name="question8-radio" id="question8-negative" value="No" required>
 											<label class="form-check-label" for="question8-negative">No</label>
 										</div>
 									</div>
@@ -292,11 +420,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question9-radio" id="question9-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question9-radio" id="question9-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question9-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question9-radio" id="question9-negative" value="No">
+											<input class="form-check-input" type="radio" name="question9-radio" id="question9-negative" value="No" required>
 											<label class="form-check-label" for="question9-negative">No</label>
 										</div>
 									</div>
@@ -309,11 +437,11 @@
 									<div class="col-md-2">
 										<hr />
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question10-radio" id="question10-affirmative" value="Yes">
+											<input class="form-check-input" type="radio" name="question10-radio" id="question10-affirmative" value="Yes" required>
 											<label class="form-check-label" for="question10-affirmative">Yes</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="question10-radio" id="question10-negative" value="No">
+											<input class="form-check-input" type="radio" name="question10-radio" id="question10-negative" value="No" required>
 											<label class="form-check-label" for="question10-negative">No</label>
 										</div>
 									</div>
@@ -330,7 +458,13 @@
 								<div class="form-row">
 									<div class="col-md-11 offset-1 form-group">
 										<label for="prior1-employer">Employer</label>
-										<input type="text" class="form-control" name="prior1-employer" id="prior1-employer">
+										<input type="text" class="form-control" name="prior1-employer" id="prior1-employer" required>
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter at least one prior employer or "None" if this would be your first job.
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -346,7 +480,60 @@
 								<div class="form-row">
 									<div class="col-md-2 offset-1 form-group">
 										<label for="prior1-state">State</label>
-										<input type="text" class="form-control" name="prior1-state" id="prior1-state" placeholder="OH">
+										<select type="text" class="form-control" name="prior1-state" id="prior1-state">
+											<option>AL</option>
+											<option>AK</option>
+											<option>AZ</option>
+											<option>AR</option>
+											<option>CA</option>
+											<option>CO</option>
+											<option>CT</option>
+											<option>DE</option>
+											<option>FL</option>
+											<option>GA</option>
+											<option>HI</option>
+											<option>ID</option>
+											<option>IL</option>
+											<option>IN</option>
+											<option>IA</option>
+											<option>KS</option>
+											<option>KY</option>
+											<option>LA</option>
+											<option>ME</option>
+											<option>MD</option>
+											<option>MA</option>
+											<option>MI</option>
+											<option>MN</option>
+											<option>MS</option>
+											<option>MO</option>
+											<option>MT</option>
+											<option>NE</option>
+											<option>NV</option>
+											<option>NH</option>
+											<option>NJ</option>
+											<option>NM</option>
+											<option>NY</option>
+											<option>NC</option>
+											<option>ND</option>
+											<option selected="selected">
+												OH
+											</option>
+											<option>OK</option>
+											<option>OR</option>
+											<option>PA</option>
+											<option>RI</option>
+											<option>SC</option>
+											<option>SD</option>
+											<option>TN</option>
+											<option>TX</option>
+											<option>UT</option>
+											<option>VT</option>
+											<option>VA</option>
+											<option>WA</option>
+											<option>WV</option>
+											<option>WI</option>
+											<option>WY</option>
+										</select>
 									</div>
 									<div class="col-md-3 form-group">
 										<label for="prior1-zip">Zip</label>
@@ -379,7 +566,7 @@
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="prior1-to">To</label>
-										<input type="date" class="form-control" anme="prior1-to" id="prior1-to">
+										<input type="date" class="form-control" name="prior1-to" id="prior1-to">
 									</div>
 								</div>
 								<div class="form-row">
