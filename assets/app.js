@@ -129,7 +129,7 @@ $(document).ready(function() {
   //     .catch(error => alert('Error! Please re-submit your application!', error.message));
 
   // }) 
-  $("input[name='phone']").keypress(function (e) {
+  $("input[name='phone'], input[name='prior1-phone'], input[name='prior2-phone'], input[name='prior3-phone']").keypress(function (e) {
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
       return false;
     }
@@ -153,15 +153,28 @@ $(document).ready(function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
     var prior1Inputs = "#prior1-address, #prior1-city, #prior1-state, #prior1-zip, #prior1-phone, #prior1-supervisor, #prior1-title, #prior1-from, #prior1-to, #prior1-pay, #prior1-reason, #prior1-contact-affirmative, #prior1-contact-negative";
+    var prior2Inputs = "#prior2-address, #prior2-city, #prior2-state, #prior2-zip, #prior2-phone, #prior2-supervisor, #prior2-title, #prior2-from, #prior2-to, #prior2-pay, #prior2-reason, #prior2-contact-affirmative, #prior2-contact-negative";
+    var prior3Inputs = "#prior3-address, #prior3-city, #prior3-state, #prior3-zip, #prior3-phone, #prior3-supervisor, #prior3-title, #prior3-from, #prior3-to, #prior3-pay, #prior3-reason, #prior3-contact-affirmative, #prior3-contact-negative";
     
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
 		  form.addEventListener('submit', e => {
 		  	if ($("#prior1-employer").val() !== "" && $("#prior1-employer").val().toUpperCase().trim() !== "NONE") {
-		  		console.log($("#prior1-employer").val().toUpperCase().trim());
 		  		$(prior1Inputs).prop("required", true);
 		  	} else {
 		  		$(prior1Inputs).prop("required", false);
+		  	};
+
+		  	if ($("#prior2-employer").val() !== "") {
+		  		$(prior2Inputs).prop("required", true);
+		  	} else {
+		  		$(prior2Inputs).prop("required", false);
+		  	};
+
+		  	if ($("#prior3-employer").val() !== "") {
+		  		$(prior3Inputs).prop("required", true);
+		  	} else {
+		  		$(prior3Inputs).prop("required", false);
 		  	};
 
         if (form.checkValidity() === false) {

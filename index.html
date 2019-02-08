@@ -471,10 +471,22 @@
 									<div class="col-md-7 offset-1 form-group">
 										<label for="prior1-address">Street Address</label>
 										<input type="text" class="form-control" name="prior1-address" id="prior1-address" placeholder="123 Number St">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-4 form-group">
 										<label for="prior1-city">City</label>
 										<input type="text" class="form-control" name="prior1-city" id="prior1-city" placeholder="Citytown">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -537,21 +549,45 @@
 									</div>
 									<div class="col-md-3 form-group">
 										<label for="prior1-zip">Zip</label>
-										<input type="text" class="form-control" name="prior1-zip" id="prior1-zip" placeholder="XXXXXX">
+										<input type="text" class="form-control" name="prior1-zip" id="prior1-zip" pattern="^\d{5}(?:[-\s]\d{4})?$" placeholder="XXXXXX">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid zip code.
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="prior1-phone">Telephone</label>
-										<input type="tel" class="form-control" name="prior1-phone" id="prior1-phone" placeholder="(XXX) XXX-XXXX">
+										<input type="tel" class="form-control" name="prior1-phone" id="prior1-phone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" placeholder="(XXX) XXX-XXXX">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid phone number.
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-5 offset-1 form-group">
 										<label for="prior1-supervisor">Name of Immediate Supervisor</label>
 										<input type="text" class="form-control" name="prior1-supervisor" id="prior1-supervisor">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="prior1-title">Position/Job Title</label>
 										<input type="text" class="form-control" name="prior1-title" id="prior1-title">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -563,22 +599,46 @@
 									<div class="col-md-5 offset-1 form-group">
 										<label for="prior1-from">From</label>
 										<input type="date" class="form-control" name="prior1-from" id="prior1-from">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="prior1-to">To</label>
 										<input type="date" class="form-control" name="prior1-to" id="prior1-to">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-5 offset-1 form-group">
 										<label for="prior1-pay">Pay</label>
 										<input type="test" class="form-control" name="prior1-pay" id="prior1-pay">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-11 offset-1 form-group">
 										<label for="prior1-reason">Reason for Leaving</label>
 										<input type="text" class="form-control" name="prior1-reason" id="prior1-reason">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
@@ -616,24 +676,101 @@
 									<div class="col-md-7 offset-1 form-group">
 										<label for="prior2-address">Street Address</label>
 										<input type="text" class="form-control" name="prior2-address" id="prior2-address" placeholder="123 Number St">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 									<div class="col-md-4 form-group">
 										<label for="prior2-city">City</label>
 										<input type="text" class="form-control" name="prior2-city" id="prior2-city" placeholder="Citytown">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											* Required
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col-md-2 offset-1 form-group">
 										<label for="prior2-state">State</label>
-										<input type="text" class="form-control" name="prior2-state" id="prior2-state" placeholder="OH">
+										<select type="text" class="form-control" name="prior2-state" id="prior2-state">
+											<option>AL</option>
+											<option>AK</option>
+											<option>AZ</option>
+											<option>AR</option>
+											<option>CA</option>
+											<option>CO</option>
+											<option>CT</option>
+											<option>DE</option>
+											<option>FL</option>
+											<option>GA</option>
+											<option>HI</option>
+											<option>ID</option>
+											<option>IL</option>
+											<option>IN</option>
+											<option>IA</option>
+											<option>KS</option>
+											<option>KY</option>
+											<option>LA</option>
+											<option>ME</option>
+											<option>MD</option>
+											<option>MA</option>
+											<option>MI</option>
+											<option>MN</option>
+											<option>MS</option>
+											<option>MO</option>
+											<option>MT</option>
+											<option>NE</option>
+											<option>NV</option>
+											<option>NH</option>
+											<option>NJ</option>
+											<option>NM</option>
+											<option>NY</option>
+											<option>NC</option>
+											<option>ND</option>
+											<option selected="selected">
+												OH
+											</option>
+											<option>OK</option>
+											<option>OR</option>
+											<option>PA</option>
+											<option>RI</option>
+											<option>SC</option>
+											<option>SD</option>
+											<option>TN</option>
+											<option>TX</option>
+											<option>UT</option>
+											<option>VT</option>
+											<option>VA</option>
+											<option>WA</option>
+											<option>WV</option>
+											<option>WI</option>
+											<option>WY</option>
+										</select>
 									</div>
 									<div class="col-md-3 form-group">
 										<label for="prior2-zip">Zip</label>
-										<input type="text" class="form-control" name="prior2-zip" id="prior2-zip" placeholder="XXXXXX">
+										<input type="text" class="form-control" name="prior2-zip" id="prior2-zip" pattern="^\d{5}(?:[-\s]\d{4})?$" placeholder="XXXXXX">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid zip code.
+										</div>
 									</div>
 									<div class="col-md-6 form-group">
 										<label for="prior2-phone">Telephone</label>
-										<input type="tel" class="form-control" name="prior2-phone" id="prior2-phone" placeholder="(XXX) XXX-XXXX">
+										<input type="tel" class="form-control" name="prior2-phone" id="prior2-phone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" placeholder="(XXX) XXX-XXXX">
+										<div class="valid-feedback">
+											Looks Good!
+										</div>
+										<div class="invalid-feedback">
+											Please enter a valid phone number.
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
