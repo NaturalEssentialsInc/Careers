@@ -33,11 +33,11 @@ $(document).ready(function() {
 
 			entries[i]["gsx$jobpostings"] ? e.id = entries[i]["gsx$jobpostings"].$t: e.id = "";
 			entries[i]["gsx$_cokwr"] ? e.title = entries[i]["gsx$_cokwr"].$t: e.title = "TITLE UNAVAILABLE";
-			entries[i]["gsx$_cpzh4"] ? e.description = entries[i]["gsx$_cpzh4"].$t: e.description = "";
-			entries[i]["gsx$_cre1l"] ? e.duties = entries[i]["gsx$_cre1l"].$t: e.duties = "";
-			entries[i]["gsx$_chk2m"] ? e.skills = entries[i]["gsx$_chk2m"].$t: e.skills = "";
-			entries[i]["gsx$_ciyn3"] ? e.conditions = entries[i]["gsx$_ciyn3"].$t : e.conditions = "";
-			entries[i]["gsx$_ckd7g"] ? e.benefits = entries[i]["gsx$_ckd7g"].$t: e.benefits = "";
+			entries[i]["gsx$_cpzh4"] ? e.description = entries[i]["gsx$_cpzh4"].$t.replace(/(?:\r\n|\r|\n)/g, '<br>'): e.description = "";
+			entries[i]["gsx$_cre1l"] ? e.duties = entries[i]["gsx$_cre1l"].$t.replace(/(?:\r\n|\r|\n)/g, '<br>'): e.duties = "";
+			entries[i]["gsx$_chk2m"] ? e.skills = entries[i]["gsx$_chk2m"].$t.replace(/(?:\r\n|\r|\n)/g, '<br>'): e.skills = "";
+			entries[i]["gsx$_ciyn3"] ? e.conditions = entries[i]["gsx$_ciyn3"].$t.replace(/(?:\r\n|\r|\n)/g, '<br>'): e.conditions = "";
+			entries[i]["gsx$_ckd7g"] ? e.benefits = entries[i]["gsx$_ckd7g"].$t.replace(/(?:\r\n|\r|\n)/g, '<br>'): e.benefits = "";
 			entries[i]["gsx$_clrrx"] ? e.type = entries[i]["gsx$_clrrx"].$t: e.type = "---";
 			entries[i]["gsx$_cyevm"] ? e.status = entries[i]["gsx$_cyevm"].$t: e.status = "Inactive";
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 	function listMaker(input) {
 
-	  var list = "<ul class\"listing-list\">";
+	  var list = "";
 	  var arr = input.split("!!!");
 	  console.log("input: " + arr);
 	  if (arr.length > 1) {
@@ -61,6 +61,7 @@ $(document).ready(function() {
 		  	list = list + "<li>" + arr[j] + "</li>";
 		  }
 		  list = list + "</ul>";
+		  list = "<ul class\"listing-list\">" + arr[0] + list;
 		  return list;
 		} else { 
 			return input;
@@ -95,6 +96,7 @@ $(document).ready(function() {
 													  "</div>" +
 												  "</div>" +
 											  "</div>" +
+											"</div>" +
 											"<div id=\"collapse" + i + "\" class=\"collapse\" aria-labelledby=\"heading" + i + "\" data-parent=\"#jobs\">" +
 											  "<div class=\"card-body\">" +
 											    (data[i].description !== "" ? "<h3 class=\"listing-header\">Job Description:</h3>" + data[i].description: "") +
