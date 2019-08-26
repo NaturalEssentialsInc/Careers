@@ -91,9 +91,9 @@ $(document).ready(function() {
 											    "<div class=\"row\">" +
 											      "<div class=\"col-md-6\">" +
 													    "<h2 class =\"mb-0\">" +
-													      "<button class=\"btn btn-link collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapse" + i + "\" aria-expanded=\"false\" aria-controls=\"collapse" + i + "\">" +
+													      "<button class=\"btn btn-link collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapse" + i + "\" aria-expanded=\"false\" aria-controls=\"collapse" + i + "\"><span>" +
 													         data[i].title +
-													      "</button>" +
+													      "</span></button>" +
 													    "</h2>" +
 													  "</div>" +
 													  "<div class=\"col-md-6\">" +

@@ -30,14 +30,14 @@ a.navbar-brand {
 
 .card-header {
 	background-color: white;
-	width: 82%;
+	width: 90%;
 	margin: auto;
 	padding: 12px 0px 12px 0px;
 	border-bottom: 0px;
 }
 
 .card-body {
-	width: 82%;
+	width: 90%;
 	margin: auto;
 	padding: 12px 0px 12px 0px;
 }
@@ -67,8 +67,12 @@ a.navbar-brand {
 	margin-top: 20px
 }
 
+button {
+	margin-top: 10px;
+}
+
 .results {
-	width: 80%;
+	width: 90%;
 	margin: auto;
 	padding-top: 25px;
 	padding-bottom: 25px
@@ -87,13 +91,25 @@ a.navbar-brand {
 
 .copy {
   margin: auto;	
-  width: 80%;
+  width: 90%;
   margin-top: 25px;
 }
 
 #headers {
 	margin-left: 25px;
 	margin-right: 25px;
+}
+
+@media screen and (max-width: 600px) {
+	#headers {
+		margin: auto;
+	}
+	#page {
+		width: 100%;
+	}
+	.btn {
+		white-space: normal;
+	}
 }
 
 #img-text {
@@ -114,5 +130,9 @@ a.navbar-brand {
 }
 
 #page {
-	width: 80%;
+	width: 90%;
+}
+
+.wrapper {
+	margin:auto;
 }
